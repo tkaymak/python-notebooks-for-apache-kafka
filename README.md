@@ -53,7 +53,7 @@ docker compose up -d
 
 ![Place consumer alongside the producer](images/move-consumer.gif)
 
-**02 - Consumer.ipynb** reads from the topic from the point it attaches — it does not replay history. To read messages already produced, start the consumer cell *before* producing. This is Kafka's default behaviour and can be changed by adding `auto_offset_reset='earliest'` to the consumer config.
+**02 - Consumer.ipynb** reads from the topic from the point it attaches — it does not replay history. Run the producer cell in **01** first to send some messages, then run the consumer loop. The loop exits automatically after `timeout_ms` (5 s) of inactivity. This is Kafka's default offset behaviour and can be changed by adding `auto_offset_reset='earliest'` to the consumer config.
 
 ![Consumer](images/consumer.png)
 
